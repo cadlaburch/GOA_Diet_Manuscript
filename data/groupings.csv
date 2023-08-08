@@ -1,0 +1,91 @@
+Prey_Name,Prey_Name_Clean,taxonomic_rank,descriptive,commercial_species,stock_groupings,gam_grouping,sable_group,atka_group,POP_grouping,flathead_groupings,srs_groupings
+Agonidae,Agonidae,family,"aligator fiss, starsnout, hooknoses, rockhead",,other fish,other,other fish,other,other fish,other fish,other fish
+Ammodytidae,Ammodytidae,family,sand lance,Forage,forage fish,other,forage fish,other,other fish,forage fish,forage fish
+Misc Amphipoda,Amphipoda,order,amphipod,,zooplankton,other,zooplankton,zooplankton,zooplankton,zooplankton,zooplankton
+Misc Worm,Annelida,phylum,worms,,benthic invertebrate,other,benthic invertebrate,other,benthic invertebrate,benthic invertebrate,benthic invertebrate
+Misc Anomura,Anomura,infraorder,infraorder of decapods (hermits) outdated?,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Sablefish,Anoplopoma fimbria,species,sablefish,Target,other fish,other,other fish,other,other fish,other fish,other fish
+Larvacea,Appendicularia,class,larvae,,zooplankton,other,zooplankton,zooplankton,zooplankton,zooplankton,zooplankton
+Kamchatka flounder,Atheresthes evermanni,species,flatfish,Target?,flatfish,other,other fish,other,other fish,other fish,flatfish
+Arrowtooth flounder,Atheresthes stomias,species,A flounder (flatfish),Target,flatfish,other,other fish,other,other fish,other fish,flatfish
+Misc Bird,Aves,Class,bird,,other,other,other,other,other,other,other
+Bathylagid,Bathylagidae,family,deep sea smelt,Forage,forage fish,other,forage fish,other,other fish,forage fish,forage fish
+Bivalvia,Bivalvia,class,clam class,,other,other,other,other,other,Bivalvia,Bivalvia
+Cancridea,Brachyura,infraorder,crabs ,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Misc Brachyura,Brachyura,infraorder,true crabs includes snow and dungeness,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Misc Crab,Brachyura,infraorder,crab,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Capreillidea,Caprellidae,family,skeleton shrimp,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Misc Shrimp,Caridea,infraorder,shrimp,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Misc Cephalopoda,Cephalopoda,class,cephalopods,,other,other,other,other,other,other,other
+Chaetognatha,Chaetognatha,phylum,predatory marine worm,,benthic invertebrate,other,benthic invertebrate,other,benthic invertebrate,benthic invertebrate,benthic invertebrate
+Tanner Crab,Chionoecetes bairdi,species,tanner crab,,commercial crab,Tanner crab,Arthropoda,other,arthropoda,commercial crab,Arthropoda
+Opilio Crab,Chionoecetes opilio,species,snow crabs,,commercial crab,other,Arthropoda,other,arthropoda,commercial crab,Arthropoda
+Chionoecetes spp.,Chionoecetes sp.,genus,snow crabs,,commercial crab,other,Arthropoda,other,arthropoda,commercial crab,Arthropoda
+Clupeoidei,Clupeoidei,suborder,herring?,Forage ,forage fish,Clupeidei,forage fish,other,other fish,forage fish,forage fish
+Sand Dollar,Clypeasteroida,order,sand dollar,,other,other,other,other,other,other,other
+Cnidaria,Cnidaria,phylum,jellyfish phylum,,other,other,jellyfish,other,other,other,other
+Copepoda,Copepoda,subclass,copepod,,copepod,other,zooplankton,copepod,copepod,zooplankton,zooplankton
+Cottid,Cottidae,family,sculpin family,Ecosystem Component,other fish,other,other fish,other,other fish,other fish,other fish
+Crangonidae (shrimp),Crangonidae,family,Alaska Bay Shrimp,,Arthropoda,other,Arthropoda,other,Arthropoda,Crangonidae,Arthropoda
+Misc Crustacea,Crustacea,subphylum,crustaceans,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Ctenophora,Ctenophora sp.,Genus,comb jellies,,other,other,other,other,other,other,other
+Cumacea,Cumacea,order,small hooded shrimp but not really shrimp?,,zooplankton,other,zooplankton,zooplankton,zooplankton,zooplankton,zooplankton
+Cyclopteridae,Cyclopteridae,family,lumpsucker fish,,other fish,other,other fish,other,other fish,other fish,other fish
+Misc Decapoda,Decapoda,order,order of crustaceans,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Sea Urchin,Echinodea,family,urchin,,other,other,other,other,other,other,other
+Misc Echinoderm,Echinodermata,phylum,echinoderm,,other,other,other,other,other,other,other
+Empty,Empty,other,Empty,,other fish,other,other fish,other,other fish,other fish,other fish
+Euphausiacea,Euphausiacea,order,Krill,Forage,euphausiids,Euphausiacea,euphausiids,euphausiids,euphausiids,euphausiids,zooplankton
+Fish Eggs,Fish Eggs,other,eggs,,zooplankton,other,zooplankton,zooplankton,zooplankton,zooplankton,zooplankton
+Misc Gadidae,Gadidae,family,cod family,,cod,other,cod,other,other fish,other fish,other fish
+Walleye pollock,Gadus chalcogrammus,species,walley pollock,Target,walleye pollock,Walleye pollock,walleye pollock,other,walleye pollock,other fish,other fish
+Pacific Cod,Gadus macrocephalus,species,cod,Target,cod,other,cod,other,other fish,other fish,other fish
+Gammaridea,Gammaridea,family,Amphipod,,zooplankton,other,zooplankton,zooplankton,zooplankton,zooplankton,zooplankton
+Gastropod,Gastropod,class,snails,,other,other,other,other,other,other,other
+Misc Hexagrammidae,Hexagrammidae,family,greenling fish,,other fish,other,other fish,other,other fish,other fish,other fish
+Flathead sole,Hippoglossoides elassodon,species,flathead sole (flatfish),Target,flatfish,other,other fish,other,other fish,other fish,flatfish
+Pacific halibut,Hippoglossus stenolepis,species,halibut,Target,flatfish,other,other fish,other,other fish,other fish,flatfish
+Hippolytidae (shrimp),Hippolytidae,family,cleaner shrimp,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Sea Cucumber,Holothuroidea,class,sea cucumber,,other,other,other,other,other,other,other
+Hyperiidea,Hyperiidea,suborder,amphipod,,zooplankton,other,zooplankton,zooplankton,zooplankton,zooplankton,zooplankton
+Misc Invert,Invertebrate,other,inverts,,other,other,other,other,other,other,other
+Isopoda,Isopoda,order,isopods,,benthic invertebrate,other,benthic invertebrate,other,benthic invertebrate,benthic invertebrate,benthic invertebrate
+Southern rock sole,Lepidopsetta bilineata,species,flatfish,Target,flatfish,other,other fish,other,other fish,other fish,flatfish
+Northern rock sole,Lepidopsetta polyxystra,species,rock sole fish (flatfish),Target,flatfish,other,other fish,other,other fish,other fish,flatfish
+Lepidopsetta sp,Lepidopsetta sp.,genus,sole genus (flatfish),Target,flatfish,other,other fish,other,other fish,other fish,flatfish
+Yellowfin sole,Liminda aspera,species,yellowfin sole (flatfish),Target,flatfish,other,other fish,other,other fish,other fish,flatfish
+Misc Lithodidae,Lithodidae,family,king crab,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Macrouridae,Macrouridae,family,deep sea cod,,other fish,other,other fish,other,other fish,other fish,other fish
+Misc Majidae,Majidae,family,Spider crab,,Arthropoda,other,Arthropoda,other,Arthropoda,Arthropoda,Arthropoda
+Misc Mollusca,Mollusca,phylum,mollusk,,other,other,other,other,other,other,other
+Myctophidae,Myctophidae,family,lanternfish,Forage,other fish,other,other fish,other,other fish,other fish,other fish
+Mysidacea,Mysidacea,order (outdated),shrimp-like crustacean (opossum shrimp),,zooplankton,other,zooplankton,zooplankton,zooplankton,zooplankton,zooplankton
+Misc Non-teleost fish,Non-teleost fish,,not ray finned,,other fish,other,other fish,other,other fish,other fish,other fish
+Octopoda,Octopoda,order,octopus,Target,other,other,octopus,other,other,other,other
+Offal,Offal,other,organs/waste,,other,other,offal,other,other,other,other
+Brittle Star,Ophiurida,order,brittle star,,other,other,other,other,other,brittle star,brittle star
+Osmerid,Osmeridae,family,"smelt, capelin",Forage,forage fish,Osmeridae,forage fish,other,other fish,forage fish,forage fish
+Paguridae,Paguridae,family,Hermit crab,,Arthropoda,Paguridae,Arthropoda,other,Arthropoda,Paguridae,Arthropoda
+Pandalidae (shrimp),Pandalidae,family,Alaska pink shrimp,,Arthropoda,Pandalidae,Arthropoda,other,Arthropoda,Pandalidae,Arthropoda
+Red King Crab,Paralithodes camtschaticus,species,king crab,,commercial crab,other,Arthropoda,other,arthropoda,commercial crab,arthropoda
+Pholidae,Pholidae,family,gunnels,Forage,other fish,other,other fish,other,other fish,other fish,other fish
+Atka Mackeral,Pleurogrammus monopterygius,species,mackeral,Target,other fish,other,other fish,other,other fish,other fish,other fish
+Alaska plaice,Pleuronectes quadrituberculatus,species,flatfish,Target,flatfish,other,other fish,other,other fish,other fish,flatfish
+Misc Flatfish,Pleuronectiformes,order,flatfish,Target,flatfish,other,other fish,other,other fish,other fish,flatfish
+Polychaeta,Polychaeta,class,polychaete worm,,benthic invertebrate,other,benthic invertebrate,other,benthic invertebrate,benthic invertebrate,Polychaeta
+Rajadae,Rajidae,family,skates,Target,other fish,other,other fish,other,other fish,other fish,other fish
+Greenland turbot,Reinhardtius hippoglossoides,species,flatfish,Target,flatfish,other,other fish,other,other fish,other fish,flatfish
+Salmonidae,Salmonidae,family,salmon,Target,salmon,other,other fish,other,other fish,other fish,salmon
+Sebastes,Sebastes sp.,genus,rockfishes,Target,rockfish,other,other fish,other,other fish,other fish,other fish
+Unid Rockfish,Sebastes sp.,genus,unidentified rockfish,Target,rockfish,other,other fish,other,other fish,other fish,other fish
+Sebastelobus,Sebastolobus sp.,genus,thornyhead fish,,other fish,other,other fish,other,other fish,other fish,other fish
+Stichaeidae,Stichaeidae,family,prickleback fish,Forage,other fish,other,other fish,other,other fish,other fish,other fish
+Misc Teleost,Teleostei unid,class,ray finned fishes,,other fish,other,other fish,other,other fish,other fish,other fish
+Teuthida,Teuthida,order,squid,Ecosystem Component,other,other,squid,other,other,other,other
+Pteropoda,Thecosomata,order,free swimming sea slugs (gastropod),,other,other,other,other,other,other,other
+Pacific sandfish,Trichodon trichodon,species,sandfish,Forage,other fish,other,other fish,other,other fish,other fish,other fish
+Tunicate,Tunicata,subphylum,tunicate,,other,other,other,other,other,other,other
+Misc,Unid,other,misc,,other,other,other,other,other,other,other
+Misc Org,Unid,other,Other,,other,other,other,other,other,other,other
+Unid Eggs,Unid Eggs,other,unidentified eggs,,zooplankton,other,zooplankton,zooplankton,zooplankton,zooplankton,zooplankton
+Zoarcoidae,Zoarcidae,family,ray finned fishes eelpouts,,other fish,other,other fish,other,other fish,other fish,other fish

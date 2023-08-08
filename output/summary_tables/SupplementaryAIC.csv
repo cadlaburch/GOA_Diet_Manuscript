@@ -1,0 +1,137 @@
+Prey,Predator,"s(RLONG, RLAT)","s(GEAR_DEPTH, k = 4)","s(GEAR_TEMP, k = 4)","s(PRED_LEN, k = 4)",Year,adjR^2,Dsquared,df,logLik,AIC,delta,weight
+Euphausiacea,Walleye pollock,+,+,+,+,+,0.20,0.12,51,-6249,12602,0.00,1.00
+Euphausiacea,Walleye pollock,+,+,NA,+,+,0.19,0.12,48,-6269,12636,34.14,0.00
+Euphausiacea,Walleye pollock,+,+,+,+,NA,0.17,0.10,37,-6375,12825,222.64,0.00
+Euphausiacea,Walleye pollock,+,NA,+,+,+,0.17,0.10,48,-6377,12851,248.89,0.00
+Euphausiacea,Walleye pollock,+,+,NA,+,NA,0.17,0.10,34,-6393,12856,253.88,0.00
+Euphausiacea,Walleye pollock,+,NA,NA,+,+,0.16,0.10,45,-6414,12920,317.71,0.00
+Euphausiacea,Walleye pollock,+,NA,+,+,NA,0.14,0.08,34,-6502,13074,472.40,0.00
+Euphausiacea,Walleye pollock,+,NA,NA,+,NA,0.14,0.08,31,-6535,13133,531.04,0.00
+Euphausiacea,Pacific Cod,+,+,+,+,+,0.15,0.10,47,-4668,9432,0.00,1.00
+Euphausiacea,Pacific Cod,+,+,NA,+,+,0.14,0.09,46,-4683,9459,27.50,0.00
+Euphausiacea,Pacific Cod,+,NA,+,+,+,0.14,0.09,46,-4689,9470,38.68,0.00
+Euphausiacea,Pacific Cod,+,NA,NA,+,+,0.14,0.09,44,-4702,9491,59.82,0.00
+Euphausiacea,Pacific Cod,+,+,+,+,NA,0.11,0.07,34,-4795,9659,227.89,0.00
+Euphausiacea,Pacific Cod,+,+,NA,+,NA,0.11,0.07,32,-4802,9668,236.51,0.00
+Euphausiacea,Pacific Cod,+,NA,+,+,NA,0.10,0.07,32,-4818,9702,270.68,0.00
+Euphausiacea,Pacific Cod,+,NA,NA,+,NA,0.10,0.07,30,-4825,9710,278.35,0.00
+Euphausiacea,Arrowtooth Flounder,+,+,+,+,+,0.35,0.23,49,-4956,10012,0.00,0.92
+Euphausiacea,Arrowtooth Flounder,+,+,NA,+,+,0.35,0.22,48,-4959,10017,4.76,0.08
+Euphausiacea,Arrowtooth Flounder,+,+,+,+,NA,0.32,0.20,35,-5113,10298,285.92,0.00
+Euphausiacea,Arrowtooth Flounder,+,+,NA,+,NA,0.32,0.20,34,-5118,10305,293.43,0.00
+Euphausiacea,Arrowtooth Flounder,+,NA,+,+,+,0.28,0.17,48,-5303,10704,691.60,0.00
+Euphausiacea,Arrowtooth Flounder,+,NA,NA,+,+,0.27,0.17,45,-5322,10735,722.79,0.00
+Euphausiacea,Arrowtooth Flounder,+,NA,+,+,NA,0.24,0.14,35,-5472,11014,1002.38,0.00
+Euphausiacea,Arrowtooth Flounder,+,NA,NA,+,NA,0.23,0.14,32,-5490,11045,1033.04,0.00
+Walleye pollock,Pacific halibut,+,+,+,+,+,0.36,0.27,48,-2098,4293,0.00,1.00
+Walleye pollock,Pacific halibut,+,+,NA,+,+,0.35,0.26,46,-2108,4309,15.56,0.00
+Walleye pollock,Pacific halibut,+,NA,+,+,+,0.35,0.26,46,-2112,4317,23.32,0.00
+Walleye pollock,Pacific halibut,+,+,+,+,NA,0.34,0.25,35,-2145,4362,69.06,0.00
+Walleye pollock,Pacific halibut,+,+,NA,+,NA,0.33,0.25,32,-2158,4381,87.87,0.00
+Walleye pollock,Pacific halibut,+,NA,NA,+,+,0.33,0.25,43,-2151,4389,95.31,0.00
+Walleye pollock,Pacific halibut,+,NA,+,+,NA,0.32,0.24,32,-2182,4430,136.58,0.00
+Walleye pollock,Pacific halibut,+,NA,NA,+,NA,0.31,0.23,29,-2212,4484,190.61,0.00
+Walleye pollock,Pacific cod,+,+,+,+,+,0.37,0.32,48,-1490,3076,0.00,0.66
+Walleye pollock,Pacific cod,+,+,NA,+,+,0.37,0.32,46,-1493,3078,1.35,0.33
+Walleye pollock,Pacific cod,+,NA,+,+,+,0.36,0.31,45,-1497,3085,8.32,0.01
+Walleye pollock,Pacific cod,+,NA,NA,+,+,0.36,0.31,43,-1507,3101,24.75,0.00
+Walleye pollock,Pacific cod,+,+,+,+,NA,0.33,0.28,34,-1565,3199,122.38,0.00
+Walleye pollock,Pacific cod,+,+,NA,+,NA,0.32,0.28,31,-1576,3216,139.21,0.00
+Walleye pollock,Pacific cod,+,NA,+,+,NA,0.32,0.27,31,-1583,3230,153.32,0.00
+Walleye pollock,Pacific cod,+,NA,NA,+,NA,0.31,0.27,29,-1594,3247,170.92,0.00
+Walleye pollock,Arrowtooth flounder,+,+,+,+,+,0.38,0.30,49,-2740,5579,0.00,0.96
+Walleye pollock,Arrowtooth flounder,+,+,NA,+,+,0.38,0.30,47,-2745,5586,6.21,0.04
+Walleye pollock,Arrowtooth flounder,+,NA,+,+,+,0.38,0.29,47,-2768,5633,53.20,0.00
+Walleye pollock,Arrowtooth flounder,+,NA,NA,+,+,0.37,0.29,45,-2783,5656,76.74,0.00
+Walleye pollock,Arrowtooth flounder,+,+,+,+,NA,0.29,0.22,35,-3045,6162,582.24,0.00
+Walleye pollock,Arrowtooth flounder,+,+,NA,+,NA,0.29,0.21,32,-3061,6187,607.89,0.00
+Walleye pollock,Arrowtooth flounder,+,NA,+,+,NA,0.28,0.21,34,-3086,6240,660.98,0.00
+Walleye pollock,Arrowtooth flounder,+,NA,NA,+,NA,0.26,0.20,31,-3134,6332,752.78,0.00
+Pandalidae,Walleye pollock,+,+,+,+,+,0.32,0.25,49,-2812,5724,0.00,0.90
+Pandalidae,Walleye pollock,+,+,NA,+,+,0.31,0.25,46,-2818,5729,4.44,0.10
+Pandalidae,Walleye pollock,+,+,+,+,NA,0.30,0.24,35,-2862,5795,71.03,0.00
+Pandalidae,Walleye pollock,+,+,NA,+,NA,0.30,0.23,32,-2867,5800,75.37,0.00
+Pandalidae,Walleye pollock,+,NA,+,+,+,0.30,0.23,46,-2875,5842,117.26,0.00
+Pandalidae,Walleye pollock,+,NA,NA,+,+,0.29,0.22,45,-2905,5901,176.96,0.00
+Pandalidae,Walleye pollock,+,NA,+,+,NA,0.27,0.21,32,-2947,5960,235.14,0.00
+Pandalidae,Walleye pollock,+,NA,NA,+,NA,0.27,0.21,31,-2969,6001,276.65,0.00
+Pandalidae,Pacific cod,+,+,+,+,+,0.28,0.18,49,-4611,9322,0.00,1.00
+Pandalidae,Pacific cod,+,+,+,+,NA,0.27,0.18,35,-4640,9352,30.20,0.00
+Pandalidae,Pacific cod,+,+,NA,+,+,0.27,0.18,47,-4634,9363,41.37,0.00
+Pandalidae,Pacific cod,+,+,NA,+,NA,0.26,0.17,33,-4678,9423,100.55,0.00
+Pandalidae,Pacific cod,+,NA,+,+,+,0.26,0.17,48,-4708,9512,189.92,0.00
+Pandalidae,Pacific cod,+,NA,+,+,NA,0.24,0.16,33,-4765,9599,276.92,0.00
+Pandalidae,Pacific cod,+,NA,NA,+,+,0.21,0.14,45,-4875,9841,519.34,0.00
+Pandalidae,Pacific cod,+,NA,NA,+,NA,0.20,0.13,31,-4919,9901,579.17,0.00
+Pandalidae,Arrowtooth flounder,+,+,+,+,+,0.22,0.17,49,-2842,5783,0.00,0.50
+Pandalidae,Arrowtooth flounder,+,+,NA,+,+,0.22,0.17,47,-2844,5783,0.03,0.50
+Pandalidae,Arrowtooth flounder,+,+,NA,+,NA,0.21,0.16,33,-2877,5821,38.48,0.00
+Pandalidae,Arrowtooth flounder,+,+,+,+,NA,0.21,0.16,35,-2876,5822,39.75,0.00
+Pandalidae,Arrowtooth flounder,+,NA,+,+,+,0.17,0.13,49,-2973,6045,262.51,0.00
+Pandalidae,Arrowtooth flounder,+,NA,+,+,NA,0.15,0.11,34,-3029,6128,345.59,0.00
+Pandalidae,Arrowtooth flounder,+,NA,NA,+,+,0.15,0.11,46,-3033,6158,375.84,0.00
+Pandalidae,Arrowtooth flounder,+,NA,NA,+,NA,0.14,0.10,32,-3066,6198,415.20,0.00
+Clupeidei,Pacific halibut,+,+,NA,+,+,0.45,0.42,36,-468,1009,0.00,0.68
+Clupeidei,Pacific halibut,+,+,+,+,+,0.45,0.42,37,-468,1011,2.01,0.25
+Clupeidei,Pacific halibut,+,NA,+,+,+,0.46,0.43,47,-460,1014,5.01,0.06
+Clupeidei,Pacific halibut,+,NA,NA,+,+,0.46,0.43,45,-462,1015,6.87,0.02
+Clupeidei,Pacific halibut,+,+,NA,+,NA,0.44,0.41,34,-477,1022,13.86,0.00
+Clupeidei,Pacific halibut,+,+,+,+,NA,0.42,0.39,23,-491,1029,20.54,0.00
+Clupeidei,Pacific halibut,+,NA,+,+,NA,0.42,0.39,21,-496,1036,27.09,0.00
+Clupeidei,Pacific halibut,+,NA,NA,+,NA,0.41,0.38,18,-502,1042,33.56,0.00
+Clupeidei,Arrowtooth flounder,+,NA,NA,+,+,0.38,0.35,42,-670,1425,0.00,0.41
+Clupeidei,Arrowtooth flounder,+,+,+,+,+,0.38,0.35,45,-667,1426,1.05,0.24
+Clupeidei,Arrowtooth flounder,+,NA,+,+,+,0.38,0.35,43,-670,1427,1.57,0.19
+Clupeidei,Arrowtooth flounder,+,+,NA,+,+,0.38,0.35,43,-670,1427,1.96,0.15
+Clupeidei,Arrowtooth flounder,+,+,+,+,NA,0.31,0.29,30,-732,1526,101.16,0.00
+Clupeidei,Arrowtooth flounder,+,NA,+,+,NA,0.31,0.29,29,-734,1527,101.97,0.00
+Clupeidei,Arrowtooth flounder,+,NA,NA,+,NA,0.30,0.28,26,-742,1538,112.96,0.00
+Clupeidei,Arrowtooth flounder,+,+,NA,+,NA,0.30,0.28,27,-742,1540,114.90,0.00
+Osmerid,Pacific halibut,+,+,+,+,+,0.29,0.25,47,-1105,2305,0.00,0.84
+Osmerid,Pacific halibut,+,+,NA,+,+,0.29,0.25,44,-1110,2308,3.26,0.16
+Osmerid,Pacific halibut,+,NA,+,+,+,0.27,0.23,46,-1134,2361,56.95,0.00
+Osmerid,Pacific halibut,+,NA,NA,+,+,0.26,0.22,43,-1154,2395,90.37,0.00
+Osmerid,Pacific halibut,+,+,+,+,NA,0.24,0.21,33,-1173,2413,108.23,0.00
+Osmerid,Pacific halibut,+,+,NA,+,NA,0.23,0.20,30,-1184,2427,122.68,0.00
+Osmerid,Pacific halibut,+,NA,+,+,NA,0.19,0.16,30,-1238,2536,231.60,0.00
+Osmerid,Pacific halibut,+,NA,NA,+,NA,0.19,0.16,29,-1241,2540,235.63,0.00
+Osmerid,Arrowtooth flounder,+,+,+,+,+,0.24,0.18,48,-2889,5874,0.00,0.99
+Osmerid,Arrowtooth flounder,+,+,NA,+,+,0.24,0.18,45,-2896,5884,9.84,0.01
+Osmerid,Arrowtooth flounder,+,NA,+,+,+,0.24,0.18,46,-2902,5898,24.19,0.00
+Osmerid,Arrowtooth flounder,+,NA,NA,+,+,0.23,0.17,44,-2919,5926,52.30,0.00
+Osmerid,Arrowtooth flounder,+,+,+,+,NA,0.17,0.13,34,-3087,6244,370.01,0.00
+Osmerid,Arrowtooth flounder,+,+,NA,+,NA,0.17,0.12,32,-3097,6258,384.58,0.00
+Osmerid,Arrowtooth flounder,+,NA,+,+,NA,0.16,0.12,33,-3109,6285,410.88,0.00
+Osmerid,Arrowtooth flounder,+,NA,NA,+,NA,0.16,0.12,30,-3115,6291,416.85,0.00
+Tanner crab,Pacific halibut,+,+,+,+,+,0.25,0.19,49,-2222,4544,0.00,0.79
+Tanner crab,Pacific halibut,+,+,NA,+,+,0.25,0.19,47,-2226,4547,2.66,0.21
+Tanner crab,Pacific halibut,+,+,+,+,NA,0.22,0.16,35,-2285,4641,97.41,0.00
+Tanner crab,Pacific halibut,+,NA,+,+,+,0.22,0.16,47,-2295,4685,141.27,0.00
+Tanner crab,Pacific halibut,+,+,NA,+,NA,0.21,0.15,32,-2311,4687,142.96,0.00
+Tanner crab,Pacific halibut,+,NA,NA,+,+,0.20,0.15,44,-2330,4749,205.44,0.00
+Tanner crab,Pacific halibut,+,NA,+,+,NA,0.19,0.14,33,-2345,4756,212.11,0.00
+Tanner crab,Pacific halibut,+,NA,NA,+,NA,0.16,0.12,29,-2419,4897,353.42,0.00
+Tanner crab,Pacific cod,+,+,+,+,+,0.27,0.19,50,-3591,7283,0.00,1.00
+Tanner crab,Pacific cod,+,+,NA,+,+,0.27,0.19,49,-3611,7320,37.24,0.00
+Tanner crab,Pacific cod,+,+,NA,+,NA,0.24,0.17,35,-3692,7455,172.51,0.00
+Tanner crab,Pacific cod,+,+,+,+,NA,0.24,0.17,37,-3690,7456,173.38,0.00
+Tanner crab,Pacific cod,+,NA,+,+,+,0.22,0.16,48,-3757,7610,327.36,0.00
+Tanner crab,Pacific cod,+,NA,NA,+,+,0.22,0.15,46,-3779,7650,367.55,0.00
+Tanner crab,Pacific cod,+,NA,+,+,NA,0.21,0.14,34,-3816,7701,418.08,0.00
+Tanner crab,Pacific cod,+,NA,NA,+,NA,0.19,0.14,32,-3855,7775,491.83,0.00
+Paguridae,Pacific halibut,+,+,+,+,+,0.34,0.22,50,-3567,7235,0.00,1.00
+Paguridae,Pacific halibut,+,NA,+,+,+,0.34,0.21,46,-3577,7248,13.23,0.00
+Paguridae,Pacific halibut,+,+,NA,+,+,0.33,0.21,47,-3578,7251,16.11,0.00
+Paguridae,Pacific halibut,+,NA,NA,+,+,0.33,0.21,43,-3589,7267,31.75,0.00
+Paguridae,Pacific halibut,+,+,+,+,NA,0.33,0.21,36,-3603,7278,42.64,0.00
+Paguridae,Pacific halibut,+,+,NA,+,NA,0.33,0.21,33,-3610,7287,52.57,0.00
+Paguridae,Pacific halibut,+,NA,+,+,NA,0.32,0.20,32,-3614,7294,58.99,0.00
+Paguridae,Pacific halibut,+,NA,NA,+,NA,0.32,0.20,30,-3625,7310,75.34,0.00
+Paguridae,Pacific cod,+,+,+,+,+,0.11,0.08,48,-4064,8225,0.00,1.00
+Paguridae,Pacific cod,+,NA,+,+,+,0.10,0.07,45,-4085,8261,35.76,0.00
+Paguridae,Pacific cod,+,+,NA,+,+,0.10,0.07,48,-4084,8264,38.79,0.00
+Paguridae,Pacific cod,+,NA,NA,+,+,0.10,0.07,44,-4098,8286,60.92,0.00
+Paguridae,Pacific cod,+,+,+,+,NA,0.10,0.07,35,-4112,8295,69.60,0.00
+Paguridae,Pacific cod,+,+,NA,+,NA,0.09,0.06,34,-4126,8321,96.08,0.00
+Paguridae,Pacific cod,+,NA,+,+,NA,0.09,0.06,32,-4128,8321,96.31,0.00
+Paguridae,Pacific cod,+,NA,NA,+,NA,0.09,0.06,30,-4142,8346,121.25,0.00
