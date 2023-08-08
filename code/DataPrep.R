@@ -26,20 +26,22 @@ data <- data %>%
 data <- data %>% 
   mutate(uniqueID = paste("ID", Haul_Join, PRED_NODC, PRED_SPECN, sep = ""))
 
-#change year to factor
-data$Year <- factor(data$Year)
+#Create MHW categories
+data <- data %>% 
+  mutate(MHW = ifelse(Year == 2017, "Post",
+                      ifelse(Year == 2021, "Post",
+                             ifelse( Year == 2015, "MHW",
+                                     ifelse(Year == 2019, "MHW", "Pre")))))
+
 
 #Remove deep hauls and data entry error
-#data <- data %>% 
-#  filter(GEAR_DEPTH <= 300 & GEAR_DEPTH > 0)
+data <- data %>% 
+  filter(GEAR_DEPTH <= 300 & GEAR_DEPTH > 0)
 
 #remove hauls with missing data
 data <- data %>% 
   drop_na(GEAR_DEPTH, GEAR_TEMP)
 
-#remove empty stomachs
-data <- data %>% 
-  filter(Prey_Name != "Empty")
 
 #Save filtered data for all predators
 write.csv(data, here("data/all_pred_data.csv"), row.names = F)

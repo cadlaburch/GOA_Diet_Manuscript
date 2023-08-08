@@ -25,11 +25,13 @@ Mdata <- read_csv(here("data/data.csv")) #this data includes empty stomachs
 
 #change year to factor
 Mdata$Year <- factor(Mdata$Year)
+Mdata$MHW <- factor(Mdata$MHW)
+Mdata$STATIONID <- factor(Mdata$STATIONID)
 
 #Change to binary wide format data
 Mdata <- Mdata %>% 
   mutate(pres_absent = 1) %>% #create binary presence for each prey item
-    distinct(Year, uniqueID, Haul_Join, RLAT, RLONG, GEAR_DEPTH,
+    distinct(Year, uniqueID, Haul_Join, RLAT, RLONG, GEAR_DEPTH, MHW, STATIONID,
              GEAR_TEMP, PRED_LEN, Pred_common, Prey_Name, pres_absent) %>% #remove redundancies, i.e. the same prey species listed twice for the same stomach with different life history stages
     pivot_wider(names_from = Prey_Name, values_from = pres_absent, values_fill = list(pres_absent = 0)) %>% #create wide dataframe with a column for each prey type
     rename(Walleyepollock = 'Walleye pollock', TannerCrab = 'Tanner Crab',
@@ -62,14 +64,25 @@ latmax = 62
 ## Model 1: Euphausiacea Prey
 ```{r EuphWP, echo=FALSE, results=FALSE}
 #Walleye Pollock
-Model <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+Model1 <- gam(Euphausiacea ~  s(GEAR_DEPTH, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) + s(PRED_LEN, k = 4, by = MHW) + Year,
     data = WP,
     family = binomial(link = logit), #logistic scale
     method = "GCV.Cp")
 
-summary(Model)
+Model2 <- gam(Euphausiacea ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LEN, k = 4) + 
+                s(STATIONID:Year, bs = 're'),
+    data = WP,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+length$
+AIC(Model1) - AIC(Model2)
+
+ summary(Model)
 
 #Plotting partial effects
+visreg(Model1, "GEAR_DEPTH", "MHW", gg = T)
+
 Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
        gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
   theme_classic() +
