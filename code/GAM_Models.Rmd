@@ -18,6 +18,7 @@ library(patchwork) #for combining plots
 library(gridExtra) #for laying out plots
 library(visreg) #for visualizing partial effects
 library(mapdata) #for partial effects map
+library(gamm4)
 options(na.action = "na.fail") 
 
 #load data
@@ -64,17 +65,58 @@ latmax = 62
 ## Model 1: Euphausiacea Prey
 ```{r EuphWP, echo=FALSE, results=FALSE}
 #Walleye Pollock
-Model1 <- gam(Euphausiacea ~  s(GEAR_DEPTH, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) + s(PRED_LEN, k = 4, by = MHW) + Year,
-    data = WP,
-    family = binomial(link = logit), #logistic scale
-    method = "GCV.Cp")
+#MHW Interaction Model
+start <- Sys.time()
 
+Model1 <- gam(Euphausiacea ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) + 
+                s(PRED_LEN, k = 4, by = MHW) + 
+                s(Year, bs = "re") + s(STATIONID, bs = "re"),
+    data = WP,
+    family = binomial())
+
+end <- Sys.time()
+mod1.time <- end - start
+
+#Gamm4 package
+start <- Sys.time()
+Model1 <- gamm4(Euphausiacea ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) + 
+                s(PRED_LEN, k = 4, by = MHW),
+              random = ~(1|Year/STATIONID),
+    data = WP,
+    family = binomial())
+
+end <- Sys.time()
+mod1.time <- end - start
+
+
+
+
+
+
+
+#Base Model
+start <- Sys.time()
 Model2 <- gam(Euphausiacea ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LEN, k = 4) + 
-                s(STATIONID:Year, bs = 're'),
+                s(Year, bs = "re") + s(STATIONID, bs = "re"),
     data = WP,
-    family = binomial(link = logit), #logistic scale
-    method = "GCV.Cp")
+    family = binomial())
 
+end <- Sys.time()
+mod2.time <- end - start
+
+length(unique(WP$STATIONID))
+
+#Gamm4
+start <- Sys.time()
+Model2 <- gamm4(Euphausiacea ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LEN, k = 4),
+              random = ~(1|Year/STATIONID),
+    data = WP,
+    family = binomial())
+
+end <- Sys.time()
+mod2.time <- end - start
+
+#Blog post https://fromthebottomoftheheap.net/2021/02/02/random-effects-in-gams/
 length$
 AIC(Model1) - AIC(Model2)
 
