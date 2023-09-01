@@ -19,6 +19,7 @@ library(gridExtra) #for laying out plots
 library(visreg) #for visualizing partial effects
 library(mapdata) #for partial effects map
 library(gamm4)
+library(mgcViz)
 options(na.action = "na.fail") 
 
 #load data
@@ -68,9 +69,9 @@ latmax = 62
 #MHW Interaction Model
 start <- Sys.time()
 
-Model1 <- gam(Euphausiacea ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) + 
-                s(PRED_LEN, k = 4, by = MHW) + 
-                s(Year, bs = "re") + s(STATIONID, bs = "re"),
+Model1 <- gam(Euphausiacea ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) +
+                s(PRED_LEN, k = 4, by = MHW) +
+                s(Year, bs = "re"),
     data = WP,
     family = binomial())
 
@@ -88,23 +89,29 @@ Model1 <- gamm4(Euphausiacea ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, b
 end <- Sys.time()
 mod1.time <- end - start
 
+gam.check(Model1$gam)
+p <- getViz(Model2$gam)
 
+plot(p)
 
+summary(Model1$gam)
+gam.vcomp(Model2$gam, conf.lev = .95)
 
+library(gratia)
+variance_comp(Model1$gam)
 
 
 
 #Base Model
-start <- Sys.time()
-Model2 <- gam(Euphausiacea ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LEN, k = 4) + 
-                s(Year, bs = "re") + s(STATIONID, bs = "re"),
-    data = WP,
-    family = binomial())
+# start <- Sys.time()
+# Model2 <- gam(Euphausiacea ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LEN, k = 4) + 
+#                 s(Year, bs = "re") + s(STATIONID, bs = "re"),
+#     data = WP,
+#     family = binomial())
+# 
+# end <- Sys.time()
+# mod2.time <- end - start
 
-end <- Sys.time()
-mod2.time <- end - start
-
-length(unique(WP$STATIONID))
 
 #Gamm4
 start <- Sys.time()
@@ -117,8 +124,8 @@ end <- Sys.time()
 mod2.time <- end - start
 
 #Blog post https://fromthebottomoftheheap.net/2021/02/02/random-effects-in-gams/
-length$
-AIC(Model1) - AIC(Model2)
+
+AIC(Model1$mer) - AIC(Model2$mer)
 
  summary(Model)
 
@@ -160,12 +167,15 @@ map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", a
 ## Model 1: Euphausiacea Prey
 ```{r EuphPC, echo=FALSE, results=FALSE}
 #Pacific Cod
-Model <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+start <- Sys.time()
+Model3 <- gamm4(Euphausiacea ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) + 
+                s(PRED_LEN, k = 4, by = MHW),
+              random = ~(1|Year/STATIONID),
     data = PC,
-    family = binomial(link = logit), #logistic scale
-    method = "GCV.Cp")
+    family = binomial())
 
-summary(Model)
+end <- Sys.time()
+mod3.time <- end - start
 
 #Plotting partial effects
 Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
