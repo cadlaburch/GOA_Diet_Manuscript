@@ -48,20 +48,30 @@ Mdata$MHW <- factor(Mdata$MHW, levels = c("Pre", "MHW", "Post"))
 WP <- Mdata %>% 
   filter(Pred_common == "Walleye pollock") 
 
+write.csv(WP, here("data/WP.csv"), row.names = F)
+
 PH <- Mdata %>% 
   filter(Pred_common == "Pacific halibut") 
+
+write.csv(PH, here("data/PH.csv"), row.names = F)
 
 PC <- Mdata %>% 
   filter(Pred_common == "Pacific cod") 
 
+write.csv(PC, here("data/PC.csv"), row.names = F)
+
 AF <- Mdata %>% 
   filter(Pred_common == "Arrowtooth flounder") 
+
+write.csv(AF, here("data/AF.csv"), row.names = F)
 
 # Set coordinate boundaries for plotting:
 lonmin = -172
 lonmax = -130
 latmin = 52
 latmax = 62
+
+
 
 ```
 
@@ -186,7 +196,8 @@ grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Euphausiacea Occur
 
 p <- getViz(Model1)
  
-plot(p, select = c(4,5,6), pages = 1)
+map <- plot(p, select = c(4,5,6))
+
 
 # plot.new()
 # map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
@@ -268,7 +279,7 @@ grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Euphausiacea Occur
 
 p <- getViz(Model1)
  
-plot(p, select = c(4,5,6), pages = 1)
+map <- plot(p, select = c(4,5,6))
 
 ```
 
@@ -496,7 +507,7 @@ plot(p, select = c(4,5,6), pages = 1)
 
 
 ## Model 2: Walleye Pollock Prey
-```{r PollAF, echo=TRUE, results=FALSE}
+```{r PollAF, echo=FALSE, results=FALSE}
 #Arrowtooth Flounder
 #MHW Interaction Model
 start <- Sys.time()
@@ -1220,4 +1231,9 @@ grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Paguridae Occurren
 p <- getViz(Model1)
  
 plot(p, select = c(4,5,6), pages = 1)
+```
+
+```{r PagPC, echo=True, results=FALSE}
+#AIC RESULTS
+as.data.frame(AIC_Mat)
 ```
