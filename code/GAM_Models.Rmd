@@ -117,14 +117,18 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
+AIC_Mat <- matrix(nrow = 16, ncol = 5)
 
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[1,1] <- "Prey"
+AIC_Mat[1,2]<- "Pred"
+AIC_Mat[1,3] <- "MHW Model AIC"
+AIC_Mat[1,4] <- "Base Model AIC"
+AIC_Mat[1,5] <- "Delta AIC"
+AIC_Mat[2,1] <- "Euph"
+AIC_Mat[2,2] <- "WP"
+AIC_Mat[2,3] <- AIC(Model1)
+AIC_Mat[2,4] <- AIC(Model2)
+AIC_Mat[2,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -146,11 +150,19 @@ print(AIC_Mat)
 #Plotting partial effects
 
 #Model1
-Plot1 <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response", overlay = T,
        gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
   theme_classic() 
 
-Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response", overlay = T,
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+Plot1 <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response", 
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
@@ -165,8 +177,12 @@ Plot4 <- visreg(Model2, "PRED_LEN", type = "conditional", scale = "response",
 
 MainP <- (Plot1 / Plot2) + 
   plot_annotation(title = "Predator: Walleye Pollock") 
+MainPO <- (Plot1_O / Plot2_O) + 
+  plot_annotation(title = "Predator: Walleye Pollock") 
 
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Euphausiacea Occurrence")
+
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Euphausiacea Occurrence")
 
 p <- getViz(Model1)
  
@@ -212,14 +228,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[3,1] <- "Euph"
+AIC_Mat[3,2] <- "PC"
+AIC_Mat[3,3] <- AIC(Model1)
+AIC_Mat[3,4] <- AIC(Model2)
+AIC_Mat[3,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -234,10 +247,24 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
   plot_annotation(title = "Predator: Pacific Cod") 
 
+MainPO <- (Plot1_O / Plot2_O) + 
+  plot_annotation(title = "Predator: Pacific Cod") 
+
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Euphausiacea Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Euphausiacea Occurrence")
 
 p <- getViz(Model1)
  
@@ -273,14 +300,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[4,1] <- "Euph"
+AIC_Mat[4,2] <- "AF"
+AIC_Mat[4,3] <- AIC(Model1)
+AIC_Mat[4,4] <- AIC(Model2)
+AIC_Mat[4,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -295,10 +319,24 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
+  plot_annotation(title = "Predator: Arrowtooth Flounder") 
+MainPO <- (Plot1_O / Plot2_O) + 
   plot_annotation(title = "Predator: Arrowtooth Flounder") 
 
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Euphausiacea Occurrence")
+
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Euphausiacea Occurrence")
 
 p <- getViz(Model1)
  
@@ -341,14 +379,11 @@ Model2 <- gam(Walleyepollock ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LE
 end <- Sys.time()
 mod2.time <- end - start
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[5,1] <- "WP"
+AIC_Mat[5,2] <- "PH"
+AIC_Mat[5,3] <- AIC(Model1)
+AIC_Mat[5,4] <- AIC(Model2)
+AIC_Mat[5,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -363,10 +398,23 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
+  plot_annotation(title = "Predator: Pacific Halibut") 
+MainPO <- (Plot1_O / Plot2_O) + 
   plot_annotation(title = "Predator: Pacific Halibut") 
 
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Walleye Pollock Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Walleye Pollock Occurrence")
 
 p <- getViz(Model1)
  
@@ -402,14 +450,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[6,1] <- "WP"
+AIC_Mat[6,2] <- "PC"
+AIC_Mat[6,3] <- AIC(Model1)
+AIC_Mat[6,4] <- AIC(Model2)
+AIC_Mat[6,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -424,10 +469,24 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "", 
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
   plot_annotation(title = "Predator: Pacific Cod") 
 
+MainPO <- (Plot1_O / Plot2_O) + 
+  plot_annotation(title = "Predator: Pacific Cod")
+
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Walleye Pollock Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Walleye Pollock Occurrence")
 
 p <- getViz(Model1)
  
@@ -463,14 +522,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[7,1] <- "WP"
+AIC_Mat[7,2] <- "AF"
+AIC_Mat[7,3] <- AIC(Model1)
+AIC_Mat[7,4] <- AIC(Model2)
+AIC_Mat[7,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -485,10 +541,24 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
   plot_annotation(title = "Predator: Arrowtooth Flouder") 
 
+MainPO <- (Plot1_O / Plot2_O) + 
+  plot_annotation(title = "Predator: Arrowtooth Flouder") 
+
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Walleye Pollock Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Walleye Pollock Occurrence")
 
 p <- getViz(Model1)
  
@@ -530,14 +600,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[8,1] <- "Pandalid"
+AIC_Mat[8,2] <- "WP"
+AIC_Mat[8,3] <- AIC(Model1)
+AIC_Mat[8,4] <- AIC(Model2)
+AIC_Mat[8,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -550,12 +617,26 @@ Plot1 <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "respo
 
 Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic()
+
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
   theme_classic() 
 
 MainP <- (Plot1 / Plot2) + 
   plot_annotation(title = "Predator: Walleye Pollock") 
 
+MainPO <- (Plot1_O / Plot2_O) + 
+  plot_annotation(title = "Predator: Walleye Pollock") 
+
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Pandalidae Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Pandalidae Occurrence")
 
 p <- getViz(Model1)
  
@@ -591,14 +672,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[9,1] <- "Pandalid"
+AIC_Mat[9,2] <- "PC"
+AIC_Mat[9,3] <- AIC(Model1)
+AIC_Mat[9,4] <- AIC(Model2)
+AIC_Mat[9,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -613,10 +691,23 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
+  plot_annotation(title = "Predator: Walleye Pollock") 
+MainPO <- (Plot1_O / Plot2_O) + 
   plot_annotation(title = "Predator: Walleye Pollock") 
 
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Pandalidae Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Pandalidae Occurrence")
 
 p <- getViz(Model1)
  
@@ -652,14 +743,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[10,1] <- "Pandalid"
+AIC_Mat[10,2] <- "AF"
+AIC_Mat[10,3] <- AIC(Model1)
+AIC_Mat[10,4] <- AIC(Model2)
+AIC_Mat[10,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -674,10 +762,23 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic()
+
 MainP <- (Plot1 / Plot2) + 
+  plot_annotation(title = "Predator: Arrowtooth Flounder") 
+MainPO <- (Plot1_O / Plot2_O) + 
   plot_annotation(title = "Predator: Arrowtooth Flounder") 
 
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Pandalidae Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Pandalidae Occurrence")
 
 p <- getViz(Model1)
  
@@ -721,14 +822,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[11,1] <- "Osmerid"
+AIC_Mat[11,2] <- "PH"
+AIC_Mat[11,3] <- AIC(Model1)
+AIC_Mat[11,4] <- AIC(Model2)
+AIC_Mat[11,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -743,10 +841,23 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
+  plot_annotation(title = "Predator: Pacific Halibut") 
+MainPO <- (Plot1_O / Plot2_O) + 
   plot_annotation(title = "Predator: Pacific Halibut") 
 
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Osmerid Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Osmerid Occurrence")
 
 p <- getViz(Model1)
  
@@ -782,14 +893,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[12,1] <- "Osmerid"
+AIC_Mat[12,2] <- "AF"
+AIC_Mat[12,3] <- AIC(Model1)
+AIC_Mat[12,4] <- AIC(Model2)
+AIC_Mat[12,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -804,7 +912,20 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
+  plot_annotation(title = "Predator: Arrowtooth Flounder") 
+
+MainPO <- (Plot1_O / Plot2_O) + 
   plot_annotation(title = "Predator: Arrowtooth Flounder") 
 
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Osmerid Occurrence")
@@ -847,14 +968,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[13,1] <- "TannerCrab"
+AIC_Mat[13,2] <- "PH"
+AIC_Mat[13,3] <- AIC(Model1)
+AIC_Mat[13,4] <- AIC(Model2)
+AIC_Mat[13,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -869,10 +987,23 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
+  plot_annotation(title = "Predator: Pacific Halibut") 
+MainPO <- (Plot1_O / Plot2_O) + 
   plot_annotation(title = "Predator: Pacific Halibut") 
 
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Tanner Crab Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Tanner Crab Occurrence")
 
 p <- getViz(Model1)
  
@@ -889,7 +1020,7 @@ start <- Sys.time()
 Model1 <- gam(TannerCrab ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) +
                 s(PRED_LEN, k = 4, by = MHW) +
                 s(Year, bs = "re"),
-    data = PH,
+    data = PC,
     family = binomial())
 
 end <- Sys.time()
@@ -899,7 +1030,7 @@ mod1.time <- end - start
 start <- Sys.time()
 Model2 <- gam(TannerCrab ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LEN, k = 4) +
                 s(Year, bs = "re"),
-    data = PH,
+    data = PC,
     family = binomial())
 
 end <- Sys.time()
@@ -907,14 +1038,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[14,1] <- "TannerCrab"
+AIC_Mat[14,2] <- "PC"
+AIC_Mat[14,3] <- AIC(Model1)
+AIC_Mat[14,4] <- AIC(Model2)
+AIC_Mat[14,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -929,10 +1057,23 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
+  plot_annotation(title = "Predator: Pacific Halibut") 
+MainPO <- (Plot1_O / Plot2_O) + 
   plot_annotation(title = "Predator: Pacific Halibut") 
 
 grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Tanner Crab Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Tanner Crab Occurrence")
 
 p <- getViz(Model1)
  
@@ -948,7 +1089,7 @@ plot(p, select = c(4,5,6), pages = 1)
 #MHW Interaction Model
 start <- Sys.time()
 
-Model1 <- gam(TannerCrab ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) +
+Model1 <- gam(Paguridae ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) +
                 s(PRED_LEN, k = 4, by = MHW) +
                 s(Year, bs = "re"),
     data = PH,
@@ -959,7 +1100,7 @@ mod1.time <- end - start
 
 #Base Model
 start <- Sys.time()
-Model2 <- gam(TannerCrab ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LEN, k = 4) +
+Model2 <- gam(Paguridae ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LEN, k = 4) +
                 s(Year, bs = "re"),
     data = PH,
     family = binomial())
@@ -969,14 +1110,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[15,1] <- "Pagurid"
+AIC_Mat[15,2] <- "PH"
+AIC_Mat[15,3] <- AIC(Model1)
+AIC_Mat[15,4] <- AIC(Model2)
+AIC_Mat[15,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -989,12 +1127,26 @@ Plot1 <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "respo
 
 Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic()
+
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
   theme_classic() 
 
 MainP <- (Plot1 / Plot2) + 
   plot_annotation(title = "Predator: Pacific Halibut") 
 
-grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Tanner Crab Occurrence")
+MainPO <- (Plot1_O / Plot2_O) + 
+  plot_annotation(title = "Predator: Pacific Halibut") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Paguridae Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Paguridae Occurrence")
 
 p <- getViz(Model1)
  
@@ -1007,7 +1159,7 @@ plot(p, select = c(4,5,6), pages = 1)
 #Pacific Cod
 start <- Sys.time()
 
-Model1 <- gam(TannerCrab ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) +
+Model1 <- gam(Paguridae ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) +
                 s(PRED_LEN, k = 4, by = MHW) +
                 s(Year, bs = "re"),
     data = PC,
@@ -1018,7 +1170,7 @@ mod1.time <- end - start
 
 #Base Model
 start <- Sys.time()
-Model2 <- gam(TannerCrab ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LEN, k = 4) +
+Model2 <- gam(Paguridae ~  s(GEAR_TEMP, k = 4) + s(RLONG, RLAT) + s(PRED_LEN, k = 4) +
                 s(Year, bs = "re"),
     data = PC,
     family = binomial())
@@ -1028,14 +1180,11 @@ mod2.time <- end - start
 
 AIC_Diff <- AIC(Model1) - AIC(Model2)
 
-AIC_Mat <- matrix(nrow = 2, ncol = 3)
-
-AIC_Mat[1,1] <- "MHW Model AIC"
-AIC_Mat[1,2] <- "Base Model AIC"
-AIC_Mat[1,3] <- "Delta AIC"
-AIC_Mat[2,1] <- AIC(Model1)
-AIC_Mat[2,2] <- AIC(Model2)
-AIC_Mat[2,3] <- (AIC(Model1) - AIC(Model2))
+AIC_Mat[16,1] <- "Pagurid"
+AIC_Mat[16,2] <- "PC"
+AIC_Mat[16,3] <- AIC(Model1)
+AIC_Mat[16,4] <- AIC(Model2)
+AIC_Mat[16,5] <- (AIC(Model1) - AIC(Model2))
 
 print(AIC_Mat)
 
@@ -1050,10 +1199,23 @@ Plot2 <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "respon
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
+Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
+Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "",
+       overlay = T) +
+  theme_classic() 
+
 MainP <- (Plot1 / Plot2) + 
   plot_annotation(title = "Predator: Pacific Cod") 
+MainPO <- (Plot1_O / Plot2_O) + 
+  plot_annotation(title = "Predator: Pacific Cod") 
 
-grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Tanner Crab Occurrence")
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Paguridae Occurrence")
+grid.arrange(patchworkGrob(MainPO), left = "Partial Effect on Paguridae Occurrence")
 
 p <- getViz(Model1)
  
