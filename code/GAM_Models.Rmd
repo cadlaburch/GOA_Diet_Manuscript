@@ -20,15 +20,22 @@ library(visreg) #for visualizing partial effects
 library(mapdata) #for partial effects map
 library(gamm4)
 library(mgcViz)
+library(parallel)
+
 options(na.action = "na.fail") 
 
 #load data
 Mdata <- read_csv(here("data/data.csv")) #this data includes empty stomachs
 
+#Remove stations east of -145
+Mdata <- Mdata %>% 
+  filter(RLONG <= -145)
+
 #change year to factor
 Mdata$Year <- factor(Mdata$Year)
 Mdata$MHW <- factor(Mdata$MHW)
 Mdata$STATIONID <- factor(Mdata$STATIONID)
+Mdata$Haul_Join <- factor(Mdata$Haul_Join)
 
 #Change to binary wide format data
 Mdata <- Mdata %>% 
@@ -71,7 +78,9 @@ lonmax = -130
 latmin = 52
 latmax = 62
 
-
+#Detect cores for bam nthreads argument
+detectCores()/2
+#Answer 5
 
 ```
 
@@ -82,14 +91,30 @@ latmax = 62
 
 start <- Sys.time()
 
-Model1 <- gam(Euphausiacea ~  s(GEAR_TEMP, k = 4, by = MHW) + s(RLONG, RLAT, by = MHW) +
-                s(PRED_LEN, k = 4, by = MHW) +
-                s(Year, bs = "re"),
-    data = WP,
-    family = binomial())
+Model1 <- bam(Euphausiacea ~  s(GEAR_TEMP, k = 5, bs = "cr") + 
+                te(RLONG, RLAT, k = c(15,15)) +
+                s(PRED_LEN, k = 5, bs = "cr") +
+                s(Year, bs = "re") + s(Haul_Join, bs = "re"), select=T, gc.level=1,
+                samfrac=.2, discrete=TRUE, nthreads=5,
+                data = WP,
+                family = binomial())
 
 end <- Sys.time()
 mod1.time <- end - start
+
+class(WP$Haul_Join)
+#JON MODEL
+start <- Sys.time()
+Model3 <- bam(Euphausiacea ~  MHW + s(GEAR_TEMP, k = 5, by = MHW, bs="cr") +
+                te(RLONG, RLAT, by = MHW, k=c(15,15)) +
+                s(PRED_LEN, k = 5, by = MHW, bs="cr") +
+                s(Year, bs = "re") + s(Haul_Join,  bs = "re"), select=T, gc.level=1,
+                samfrac=.2, discrete=TRUE, nthreads=5,
+                data = WP,
+                family = binomial())
+
+end <- Sys.time()
+mod1.time <- end - start #2.45 m
 
 #Gamm4 package
 # start <- Sys.time()
@@ -160,11 +185,11 @@ print(AIC_Mat)
 #Plotting partial effects
 
 #Model1
-Plot1_O <- visreg(Model1, "GEAR_TEMP", "MHW", type = "conditional", scale = "response", overlay = T,
+Plot1_O <- visreg(Model3, "GEAR_TEMP", "MHW", type = "conditional", scale = "response", overlay = T,
        gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
   theme_classic() 
 
-Plot2_O <- visreg(Model1, "PRED_LEN", "MHW", type = "conditional", scale = "response", overlay = T,
+Plot2_O <- visreg(Model3, "PRED_LEN", "MHW", type = "conditional", scale = "response", overlay = T,
        gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
   theme_classic() 
 
